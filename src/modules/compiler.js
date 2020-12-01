@@ -2,7 +2,7 @@ const YAML = require('yaml');
 const fs = require('fs');
 
 function readInput() {
-    const file = fs.readFileSync('input/md-lib.config.yaml', 'utf-8');
+    const file = fs.readFileSync('md-lib.config.yaml', 'utf-8');
     return YAML.parse(file);
 }
 
@@ -57,7 +57,7 @@ function compileLevel2() {
             if (chapterCounter == chapters.length) resolve(output);
         });
     }).then(output => {
-        fs.writeFileSync(`output/${readInput().options.output}`, output);
+        fs.writeFileSync(`${readInput().options.output}`, output);
     });
 }
 
