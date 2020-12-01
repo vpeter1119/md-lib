@@ -1,14 +1,19 @@
 const YAML = require('yaml');
 const fs = require('fs');
+var path = require('path');
 
-function readInput() {
-    const file = fs.readFileSync('md-lib.config.yaml', 'utf-8');
-    return YAML.parse(file);
+const appDir = path.dirname(require.main.filename);
+let config = {};
+
+function readInput(configFile = 'md-lib.config.yaml') {
+    const file = fs.readFileSync(`${appDir}/${configFile}`, 'utf-8');
+    config = YAML.parse(file)
+    return config;
 }
 
-function compile() {
-    let libOptions = readInput().options;
-    console.log(libOptions);
+function compile(configFile = 'md-lib.config.yaml') {
+    readInput(configFile);
+    let libOptions = config.options;
     switch (libOptions.doclevel) {
         case 1:
             compileLevel1();
@@ -18,12 +23,11 @@ function compile() {
             break;
         default:
             console.log('Supported doclevels: 1, 2');
-
     }
 }
 
-function compileLevel1() {
-    let chapters = readInput().content;
+function compileLevel1(configFile = 'md-lib.config.yaml') {
+    let chapters = config.content;
     let output = '';
     new Promise((resolve, reject) => {
         let chapterCounter = 0;
@@ -36,8 +40,8 @@ function compileLevel1() {
     }).then(output => console.log(output));
 }
 
-function compileLevel2() {
-    let chapters = readInput().content;
+function compileLevel2(configFile = 'md-lib.config.yaml') {
+    let chapters = config.content;
     let output = '';
     new Promise((resolve, reject) => {
         let chapterCounter = 0;
@@ -57,7 +61,7 @@ function compileLevel2() {
             if (chapterCounter == chapters.length) resolve(output);
         });
     }).then(output => {
-        fs.writeFileSync(`${readInput().options.output}`, output);
+        fs.writeFileSync(`${config.options.output}`, output);
     });
 }
 

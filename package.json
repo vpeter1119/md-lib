@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "description": "An open-source module for compiling libraries from markdown input.",
   "main": "src/index.js",
+  "bin": {
+    "mdlib": "bin/bin.js"
+  },
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "test": "jest",
     "lint:test": "eslint src",
-    "lint:fix": "eslint src --fix"
+    "lint:fix": "eslint src --fix",
+    "compile": "mdlib"
   },
   "repository": {
     "type": "git",
@@ -24,6 +28,7 @@
   },
   "homepage": "https://github.com/vpeter1119/md-lib#readme",
   "dependencies": {
+    "minimist": "^1.2.5",
     "yaml": "^1.10.0"
   },
   "devDependencies": {
