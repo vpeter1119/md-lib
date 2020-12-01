@@ -4,7 +4,9 @@
   "description": "An open-source module for compiling libraries from markdown input.",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon src/index.js"
+    "test": "nodemon src/index.js",
+    "lint:test": "eslint src",
+    "lint:fix": "eslint src --fix"
   },
   "repository": {
     "type": "git",
