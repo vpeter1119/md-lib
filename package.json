@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/vpeter1119/md-lib/issues"
   },
-  "homepage": "https://github.com/vpeter1119/md-lib#readme"
+  "homepage": "https://github.com/vpeter1119/md-lib#readme",
+  "dependencies": {
+    "yaml": "^1.10.0"
+  }
 }
