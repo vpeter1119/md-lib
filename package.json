@@ -1,0 +1,22 @@
+{
+  "name": "@petervertesi/md-lib",
+  "version": "0.1.0",
+  "description": "An open-source module for compiling libraries from markdown input.",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vpeter1119/md-lib.git"
+  },
+  "keywords": [
+    "markdown"
+  ],
+  "author": "Peter Vertesi <info@petervertesi.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vpeter1119/md-lib/issues"
+  },
+  "homepage": "https://github.com/vpeter1119/md-lib#readme"
+}
