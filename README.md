@@ -26,8 +26,8 @@ content:
   - path: introduction.md
   - path: example-chapter-01.md
     subsections:
-      - path: family-size-village.md
-      - path: family-size-city.md
+      - path: example-subsection-01.md
+      - path: example-subsection-02.md
   - path: example-chapter-01.md
 ```
 
