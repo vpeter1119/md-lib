@@ -28,7 +28,7 @@ content:
     subsections:
       - path: example-subsection-01.md
       - path: example-subsection-02.md
-  - path: example-chapter-01.md
+  - path: example-chapter-02.md
 ```
 
 Then you can use MDLib in your project like this:
