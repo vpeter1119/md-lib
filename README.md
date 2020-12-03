@@ -1,4 +1,7 @@
 # md-lib
+
+THIS MODULE IS WORK IN PROGRESS AND NOT READY TO USE.
+
 An open-source node module for compiling libraries from markdown input.
 
 # Installation
