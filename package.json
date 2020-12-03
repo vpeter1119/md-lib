@@ -1,5 +1,6 @@
 {
   "name": "@petervertesi/md-lib",
+  "publishConfig": {"access": "public"},
   "version": "0.0.0",
   "description": "An open-source module for compiling libraries from markdown input.",
   "main": "src/index.js",
