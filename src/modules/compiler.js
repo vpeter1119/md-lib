@@ -15,7 +15,7 @@ function compile(configFile = 'md-lib.config.yaml', options = {}) {
     readInput(configFile);
     config.options = {
         input: options.input || config.options.input || 'input',
-        input: options.output || config.options.output || 'output/MDLibOutput.md',
+        output: options.output || config.options.output || 'output/MDLibOutput.md',
         doclevel: options.doclevel || config.options.doclevel || 2
     }
     switch (config.options.doclevel) {
