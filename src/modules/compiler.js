@@ -54,7 +54,7 @@ function compileLevel2(configFile = 'md-lib.config.yaml') {
                 let text = fs.readFileSync(`${config.options.input}/${chapter.path}`).toString();
                 output = output.concat(`${text}\n\n`);
             } else {
-                let text = fs.readFileSync(`inp${config.options.input}ut/${chapter.path}`).toString();
+                let text = fs.readFileSync(`${config.options.input}/${chapter.path}`).toString();
                 output = output.concat(`${text}\n\n`);
                 chapter.subsections.forEach(subsection => {
                     let text = fs.readFileSync(`${config.options.input}/${subsection.path}`).toString();
