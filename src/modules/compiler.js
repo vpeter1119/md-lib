@@ -11,10 +11,14 @@ function readInput(configFile = 'md-lib.config.yaml') {
     return config;
 }
 
-function compile(configFile = 'md-lib.config.yaml') {
+function compile(configFile = 'md-lib.config.yaml', options = {}) {
     readInput(configFile);
-    let libOptions = config.options;
-    switch (libOptions.doclevel) {
+    config.options = {
+        input: options.input || config.options.input || 'input',
+        input: options.output || config.options.output || 'output/MDLibOutput.md',
+        doclevel: options.doclevel || config.options.doclevel || 2
+    }
+    switch (config.options.doclevel) {
         case 1:
             compileLevel1();
             break;
