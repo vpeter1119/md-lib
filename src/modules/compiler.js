@@ -36,7 +36,7 @@ function compileLevel1(configFile = 'md-lib.config.yaml') {
     new Promise((resolve, reject) => {
         let chapterCounter = 0;
         chapters.forEach(chapter => {
-            let text = fs.readFileSync(`input/${chapter.path}`).toString();
+            let text = fs.readFileSync(`${config.options.input}/${chapter.path}`).toString();
             output = output.concat(`${text}\n\n`);
             chapterCounter++;
             if (chapterCounter == chapters.length) resolve(output);
@@ -51,13 +51,13 @@ function compileLevel2(configFile = 'md-lib.config.yaml') {
         let chapterCounter = 0;
         chapters.forEach(chapter => {
             if (!chapter.subsections) {
-                let text = fs.readFileSync(`input/${chapter.path}`).toString();
+                let text = fs.readFileSync(`${config.options.input}/${chapter.path}`).toString();
                 output = output.concat(`${text}\n\n`);
             } else {
-                let text = fs.readFileSync(`input/${chapter.path}`).toString();
+                let text = fs.readFileSync(`inp${config.options.input}ut/${chapter.path}`).toString();
                 output = output.concat(`${text}\n\n`);
                 chapter.subsections.forEach(subsection => {
-                    let text = fs.readFileSync(`input/${subsection.path}`).toString();
+                    let text = fs.readFileSync(`${config.options.input}/${subsection.path}`).toString();
                     output = output.concat(`${text}\n\n`);
                 });
             }
