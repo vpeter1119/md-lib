@@ -16,17 +16,14 @@ function compile(configFile = 'md-lib.config.yaml', options = {}) {
     config.options = {
         input: options.input || config.options.input || 'input',
         output: options.output || config.options.output || 'output/MDLibOutput.md',
-        doclevel: options.doclevel || config.options.doclevel || 2
+        doclevel: options.doclevel || config.options.doclevel || 1
     }
     switch (config.options.doclevel) {
         case 1:
             compileLevel1();
             break;
-        case 2:
-            compileLevel2();
-            break;
         default:
-            console.log('Supported doclevels: 1, 2');
+            console.log('Supported doclevels: 1');
     }
 }
 
@@ -36,12 +33,15 @@ function compileLevel1(configFile = 'md-lib.config.yaml') {
     new Promise((resolve, reject) => {
         let chapterCounter = 0;
         chapters.forEach(chapter => {
-            let text = fs.readFileSync(`${config.options.input}/${chapter.path}`).toString();
+            let text = readMarkdown(`${config.options.input}/${chapter.path}`);
+            console.log(text);
             output = output.concat(`${text}\n\n`);
             chapterCounter++;
             if (chapterCounter == chapters.length) resolve(output);
         });
-    }).then(output => console.log(output));
+    }).then(output => {
+        fs.writeFileSync(`${config.options.output}`, output);
+    });
 }
 
 function compileLevel2(configFile = 'md-lib.config.yaml') {
@@ -50,14 +50,11 @@ function compileLevel2(configFile = 'md-lib.config.yaml') {
     new Promise((resolve, reject) => {
         let chapterCounter = 0;
         chapters.forEach(chapter => {
-            if (!chapter.subsections) {
-                let text = fs.readFileSync(`${config.options.input}/${chapter.path}`).toString();
-                output = output.concat(`${text}\n\n`);
-            } else {
-                let text = fs.readFileSync(`${config.options.input}/${chapter.path}`).toString();
-                output = output.concat(`${text}\n\n`);
+            let text = readMarkdown(`${config.options.input}/${chapter.path}`);
+            output = output.concat(`${text}\n\n`);
+            if (chapter.subsections) {
                 chapter.subsections.forEach(subsection => {
-                    let text = fs.readFileSync(`${config.options.input}/${subsection.path}`).toString();
+                    let text = readMarkdown(`${config.options.input}/${subsection.path}`);
                     output = output.concat(`${text}\n\n`);
                 });
             }
@@ -67,6 +64,10 @@ function compileLevel2(configFile = 'md-lib.config.yaml') {
     }).then(output => {
         fs.writeFileSync(`${config.options.output}`, output);
     });
+}
+
+function readMarkdown(filepath) {
+    return fs.readFileSync(filepath).toString();
 }
 
 module.exports = {
