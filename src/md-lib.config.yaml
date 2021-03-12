@@ -1,0 +1,10 @@
+title: Example Library
+
+options:
+  input: docs
+  output: README.md
+  doclevel: 1
+
+content:
+  - path: INFO.md
+  - path: 0.2.0/README.md
