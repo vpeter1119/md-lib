@@ -1,3 +1,7 @@
+/** The Compiler module compiles multiple markdown files into one, based on the specified structure.
+ * @module Compiler
+ */
+
 const YAML = require('yaml');
 const fs = require('fs');
 var path = require('path');
@@ -11,6 +15,11 @@ function readInput(configFile = 'md-lib.config.yaml') {
     return config;
 }
 
+/**
+ * Compiles multiple markdown files into one, based on the provided config file and other options.
+ * @param {string} configFile A .yaml file that contains the configuration for the compiler.
+ * @param {any} options Options (`input`, `output` and `doclevel`) specified in this object overwrite the options in the config file.
+ */
 function compile(configFile = 'md-lib.config.yaml', options = {}) {
     readInput(configFile);
     config.options = {
