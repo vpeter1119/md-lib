@@ -16,7 +16,8 @@
     "lint:test": "eslint src",
     "lint:fix": "eslint src --fix",
     "publish": "np",
-    "test": "jest"
+    "test": "jest",
+    "version": "node src/jsd2md.js && git add docs"
   },
   "repository": {
     "type": "git",
