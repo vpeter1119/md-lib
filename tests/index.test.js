@@ -1,4 +1,4 @@
-const MDLib = require('./index');
+const MDLib = require('../src/index');
 const correctVersion = require('../package.json').version;
 
 test('returns the correct version', () => {
@@ -8,5 +8,5 @@ test('returns the correct version', () => {
 
 test('has the Compile function', () => {
     let fn = MDLib.Compile;
-    expect(typeof(fn)).toBe('function');
+    expect(fn).not.toBe(null || undefined || false);
 })
