@@ -1,0 +1,7 @@
+# Ignore artifacts:
+build
+coverage
+.vs
+docs
+package.json
+package-lock-json
