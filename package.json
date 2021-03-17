@@ -21,12 +21,6 @@
     "test": "jest",
     "version": "node src/jsd2md.js && git add docs"
   },
-  "husky": {
-    "hooks": {
-      "pre-commmit": "jest && prettier --write .",
-      "pre-push": "npm test"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vpeter1119/md-lib.git"
