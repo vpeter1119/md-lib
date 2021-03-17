@@ -17,8 +17,13 @@
     "lint:fix": "eslint src --fix",
     "prepare": "husky install",
     "publish": "np",
-    "test": "jest",
+    "test": "jest && prettier --check .",
     "version": "node src/jsd2md.js && git add docs"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commmit":  "jest && prettier --write ."
+    }
   },
   "repository": {
     "type": "git",
