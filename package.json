@@ -16,7 +16,6 @@
     "lint:test": "eslint src",
     "lint:fix": "eslint src --fix",
     "prepare": "husky install",
-    "prettier": "lint-staged",
     "publish": "np",
     "test": "jest",
     "version": "node src/jsd2md.js && git add docs"
