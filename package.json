@@ -16,13 +16,15 @@
     "lint:test": "eslint src",
     "lint:fix": "eslint src --fix",
     "prepare": "husky install",
+    "prettier": "prettier --write .",
     "publish": "np",
-    "test": "jest && prettier --check .",
+    "test": "jest",
     "version": "node src/jsd2md.js && git add docs"
   },
   "husky": {
     "hooks": {
-      "pre-commmit":  "jest && prettier --write ."
+      "pre-commmit": "jest && prettier --write .",
+      "pre-push": "npm test"
     }
   },
   "repository": {
